@@ -1,4 +1,3 @@
-
 function isPalindromeReverse(str) {
   
   const charArray = str.split('');
@@ -24,3 +23,4 @@ console.log(`"${wordB}": ${isPalindromeReverse(wordB)}`);
 console.log(`"${wordC}": ${isPalindromeReverse(wordC)}`);
 
 console.log(`"${wordD}": ${isPalindromeReverse(wordD)}`);
+
