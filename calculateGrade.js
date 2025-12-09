@@ -21,6 +21,6 @@ function calculateGrade(score) {
   return grade;
 }
 
-// Example
 let studentScore = 85;
 console.log("Grade:", calculateGrade(studentScore));
+
