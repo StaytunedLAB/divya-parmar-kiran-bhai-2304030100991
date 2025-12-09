@@ -1,13 +1,12 @@
 function showMessage(from, text) {
 
-  from = '*' + from + '*'; // make "from" look nicer
+  from = '*' + from + '*';
 
   console.log( from + ': ' + text );
 }
 
 let from = "Ann";
 
-showMessage(from, "Hello"); // *Ann*: Hello
+showMessage(from, "Hello"); y
 
-// the value of "from" is the same, the function modified a local copy
-console.log( from ); // Ann
+console.log( from ); 
