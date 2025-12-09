@@ -1,4 +1,3 @@
-
 function toValidNumber(value) {
     const num = Number(value);
     return isNaN(num) ? null : num;
@@ -133,4 +132,5 @@ const accountInput = {
 
 
 processBankAccount(accountInput);
+
 
