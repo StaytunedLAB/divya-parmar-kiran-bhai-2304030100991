@@ -1,4 +1,3 @@
-
 function toMinutes(timeStr) {
     if (!timeStr) return null;
     const parts = timeStr.split(":");
@@ -112,4 +111,5 @@ const sampleAttendance = {
 const result = processAttendance(sampleAttendance);
 console.log("\n=== FINAL ATTENDANCE SUMMARY ===");
 console.table(result);
+
 
