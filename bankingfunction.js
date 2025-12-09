@@ -1,14 +1,10 @@
-// ---------------------------------------------
-// BANKING SYSTEM – TRANSACTION & BALANCE VALIDATOR
-// ---------------------------------------------
 
-// Helper: safely convert values to valid numbers
 function toValidNumber(value) {
     const num = Number(value);
     return isNaN(num) ? null : num;
 }
 
-// Main processing function
+
 function processBankAccount(accountData) {
     const {
         accountNumber,
@@ -24,15 +20,13 @@ function processBankAccount(accountData) {
     let auditLog = "";
 
     try {
-        // Convert initial balance safely
+        
         const validInitBal = toValidNumber(initialBalance);
         if (validInitBal === null || validInitBal < 0) {
             throw new Error("Invalid initial balance");
         }
 
         finalBalance = validInitBal;
-
-        // Process each transaction safely
         for (let t of transactions) {
             try {
                 if (!t || !t.type) {
@@ -46,7 +40,7 @@ function processBankAccount(accountData) {
                 const type = t.type.toLowerCase().trim();
                 const amount = toValidNumber(t.amount);
 
-                // Validate amount
+                
                 if (amount === null || amount <= 0) {
                     rejected.push({
                         transaction: t,
@@ -55,7 +49,7 @@ function processBankAccount(accountData) {
                     continue;
                 }
 
-                // Validate transaction type
+                
                 if (type === "deposit") {
                     finalBalance += amount;
                     applied.push({
@@ -99,7 +93,7 @@ function processBankAccount(accountData) {
         console.log(auditLog);
     }
 
-    // Final Output
+    
     console.log("\n====================================");
     console.log("🏦 ACCOUNT SUMMARY");
     console.log("====================================");
@@ -118,9 +112,7 @@ function processBankAccount(accountData) {
     console.table(rejected);
 }
 
-// ---------------------------------------------
-// SAMPLE INPUT DATA
-// ---------------------------------------------
+
 
 const accountInput = {
     accountNumber: "ACC-9921",
@@ -130,14 +122,15 @@ const accountInput = {
     transactions: [
         { type: "Deposit", amount: "500" },
         { type: "Withdraw", amount: "200" },
-        { type: "Withdraw", amount: "2000" }, // insufficient balance
-        { type: "Deposit", amount: "-50" },   // invalid
-        { type: "", amount: "100" },          // missing type
-        { amount: 300 },                       // missing type
-        { type: "Transfer", amount: 100 },     // unknown type
-        { type: "Withdraw", amount: "abc" },   // invalid amount
+        { type: "Withdraw", amount: "2000" }, 
+        { type: "Deposit", amount: "-50" },   
+        { type: "", amount: "100" },         
+        { amount: 300 },                       
+        { type: "Transfer", amount: 100 },     
+        { type: "Withdraw", amount: "abc" },   
     ]
 };
 
-// Run program
+
 processBankAccount(accountInput);
+
