@@ -1,8 +1,4 @@
-// ----------------------------------------------------
-// EMPLOYEE ATTENDANCE PROCESSING SYSTEM
-// ----------------------------------------------------
 
-// Helper: Convert HH:MM string to minutes safely
 function toMinutes(timeStr) {
     if (!timeStr) return null;
     const parts = timeStr.split(":");
@@ -32,7 +28,7 @@ function processAttendance(att) {
     let errorMessage = "";
 
     try {
-        // Convert check-in & check-out
+        
         const inMin = toMinutes(checkIn);
         const outMin = toMinutes(checkOut);
 
@@ -50,7 +46,7 @@ function processAttendance(att) {
             };
         }
 
-        // Convert break
+        
         let breakDuration = 0;
         if (breakStart) {
             const bStart = toMinutes(breakStart);
@@ -58,14 +54,14 @@ function processAttendance(att) {
 
             if (bStart !== null && bEnd !== null) {
                 breakDuration = bEnd - bStart;
-                if (breakDuration < 0) breakDuration = 0; // cannot be negative
+                if (breakDuration < 0) breakDuration = 0;
             } else {
-                // Missing break end → default 30 min break
+                
                 breakDuration = 30;
             }
         }
 
-        // Calculate total working time
+        
         totalWorkingMinutes = outMin - inMin - breakDuration;
 
         if (totalWorkingMinutes < 0) {
@@ -74,7 +70,7 @@ function processAttendance(att) {
             note = "Negative working duration";
         }
 
-        // Overtime calculation
+    
         if (overtimeApproved && totalWorkingMinutes > 480) {
             overtimeMinutes = totalWorkingMinutes - 480;
         }
@@ -100,9 +96,7 @@ function processAttendance(att) {
     };
 }
 
-// ----------------------------------------------------
-// SAMPLE INPUT DATA
-// ----------------------------------------------------
+
 
 const sampleAttendance = {
     employeeId: "EMP102",
@@ -110,13 +104,12 @@ const sampleAttendance = {
     checkIn: "09:00",
     checkOut: "18:15",
     breakStart: "13:00",
-    breakEnd: null,          // Missing → default 30 mins
+    breakEnd: null,        
     overtimeApproved: true
 };
 
-// ----------------------------------------------------
-// RUN PROGRAM
-// ----------------------------------------------------
+
 const result = processAttendance(sampleAttendance);
 console.log("\n=== FINAL ATTENDANCE SUMMARY ===");
 console.table(result);
+
