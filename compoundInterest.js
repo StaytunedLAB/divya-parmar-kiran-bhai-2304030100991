@@ -6,5 +6,6 @@ function compoundInterestDetails(P, R, T) {
     };
 }
 
-// Example:
+
 console.log(compoundInterestDetails(1000, 5, 2));
+
