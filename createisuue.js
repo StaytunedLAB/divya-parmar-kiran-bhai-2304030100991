@@ -1,11 +1,9 @@
 const { Octokit } = require("@octokit/rest");
 
-// 🔐 GitHub Token
 const octokit = new Octokit({
   auth: "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"
 });
 
-// 📦 Repository Details
 const owner = "StaytunedLAB";
 const repo = "divya-parmar-kiran-bhai-2304030100991";
 
@@ -29,4 +27,5 @@ async function createIssue() {
 }
 
 createIssue();
+
 
